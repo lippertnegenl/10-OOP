@@ -1,5 +1,5 @@
-const inquirer = import ("inquirer");
-const fs = import ("fs");
+import inquirer from "inquirer";
+import fs from "fs";
 
 function Decal(logoLetter, textColor, shape, shapeColor) {
     this.logoLetter = logoLetter;
@@ -13,7 +13,7 @@ function Decal(logoLetter, textColor, shape, shapeColor) {
 
         switch (this.shape) {
             case 'circle':
-                return `<svg version="1.1" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+                return `<svg version="1.1" viewBox = "0 0 300 300" xmlns="http://www.w3.org/2000/svg">
 
         <circle cx="150" cy="100" r="80" fill="${this.shapeColor}" />
       
@@ -21,14 +21,14 @@ function Decal(logoLetter, textColor, shape, shapeColor) {
       
       </svg>`;
             case 'triangle':
-                return `<svg version ="1.1" height="300" width="300" xmlns="http://www.w3.org/2000/svg">
+                return `<svg version ="1.1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                 <polygon points ="250,60 100,400 400,400" class="triangle" fill="${this.shapeColor}" />
 
                 <text x="150" y="150" font-size="50" text-anchor="middle" fill="${this.textColor}">${this.logoLetter}</text>
                 </svg>`;
 
             case 'square':
-                return `<svg version ="1.1" height="300" width="300" xmlns="http://www.w3.org/2000/svg">
+                return `<svg version ="1.1" viewBox = "0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                 <rect width="300" height="300" fill="${this.shapeColor}"/>
 
                 <text x="150" y="150" font-size="50" text-anchor="middle" fill="${this.textColor}">${this.logoLetter}</text>
@@ -107,7 +107,7 @@ console.log(lucasShape.generateShape());
     
 
 const svgContent = lucasShape.generateShape();
-writeSvgFile('output.svg', svgContent);
+writeSvgFile('logo.svg', svgContent);
 })
 .catch((error) => {
     console.error("error prompting:", error);
